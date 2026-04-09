@@ -1,0 +1,4 @@
+# Se ignora la carpeta de dependencias
+node_modules/
+# Se ignora el archivo de credenciales secretas
+/.env
