@@ -5,7 +5,7 @@ He incluido un archivo `.env.example`. Por favor, **`cópienlo`** y renómbrelo 
 
 #### Clona repoositorio:
 ```bash
-git clone 
+git clone https://github.com/lerma-dev/server-omnihub.git
 ```  
 
 #### Iniciar Backend de omniHub:

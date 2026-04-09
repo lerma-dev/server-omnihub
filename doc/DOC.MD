@@ -10,7 +10,7 @@ cd omniHub
 ```
 
 ### 1. Creación del Servidor Node.js & Express:
-Regresamos a la carpeta raíz omniHub y configuramos el backend:
+Regresamos a la carpeta raíz `omniHub` y configuramos el backend:
 `1. Inicialización:`
 
 ```bash
@@ -19,7 +19,7 @@ cd server
 npm init -y
 ```
 
-`2. Instalación de Dependencias del Servidor:`
+### 2. Instalación de Dependencias del Servidor:
 Para que el servidor funcione, necesitamos instalar los siguientes paquetes dentro de la carpeta server:`
 
 ```bash
@@ -31,22 +31,22 @@ npm install @paypal/checkout-server-sdk
 # Dependencias de desarrollo
 npm install --save-dev nodemon
 ``` 
-- express: Framework para el servidor web.
+- `express`: Framework para el servidor web.
 
-- mysql2: Driver para conectar con la base de datos omnihub_db.
+- `mysql2`: Driver para conectar con la base de datos omnihub_db.
 
-- bcrypt: Es para encriptar las contraseñas y NO esten en texto plano.
+- `bcrypt`: Es para encriptar las contraseñas y NO esten en texto plano.
 
-- dotenv: Para manejar variables de entorno seguras (.env).
+- `dotenv`: Para manejar variables de entorno seguras (.env).
 
-- cors: Permite que el frontend (client) se comunique con el backend (server).
+- `cors`: Permite que el frontend (client) se comunique con el backend (server).
 
-- @paypal/checkout-server-sdk: Es para conectarnos  a la api de Paypal y dejarla lista en el backend para que el `client` 
+- `@paypal/checkout-server-sdk`: Es para conectarnos  a la api de Paypal y dejarla lista en el backend para que el `client` 
 pueda usar el endpoint que se conecta con la api de Paypal.
 
-- nodemon: Reinicia el servidor automáticamente al detectar cambios solo haces `ctrl + s`.
+- `nodemon`: Reinicia el servidor automáticamente al detectar cambios solo haces `ctrl + s`.
 
-`3. Configuración de ES Modules y Scripts de arranque:`
+### 3. Configuración de ES Modules y Scripts de arranque:
 
 **IMPORTANTE**: Abrir el archivo package.json y editarlo para que coincida con este formato:
 
@@ -76,14 +76,14 @@ pueda usar el endpoint que se conecta con la api de Paypal.
 }
 ```
 
-`3. Creación de archivos base:`
+`1. Creación de archivos base:`
 
 ```bash
 touch index.js .env .gitignore database.sql
 mkdir src
 ``` 
 
-`4. Organización por capas (Carpeta src):`
+### 4. Organización por capas (Carpeta src):
 
 Dentro de src separamos la lógica para evitar el "código espagueti":
 
@@ -95,7 +95,7 @@ Dentro de src separamos la lógica para evitar el "código espagueti":
 
 - api/: Consumo de servicios externos (OpenWeather).
 
-### 2. Árbol de Directorios Final
+### 5. Árbol de Directorios Final
 Así es como debe verse tu carpeta de servidor para mantener el orden:
 
 ```
@@ -115,12 +115,12 @@ Así es como debe verse tu carpeta de servidor para mantener el orden:
 └── package-lock.json   <-- Dependencias del proyecto se crea al hacer `npm intall <dependencia>`
 ```
 
-#### 3. Variables de Entorno (.env)
+#### 6. Variables de Entorno (.env)
 - Crea un archivo .env en la raíz con lo siguiente:
   - La estructura es la que deje de ejemplo de `.env.ejemplo`
 
 
-### 4. Ejecutar
+### 7. Ejecutar
 
 ```bash
 # Modo desarrollo (se reinicia al guardar)
@@ -130,7 +130,7 @@ npm run dev
 npm start
 ``` 
 
-### 5. Seccion de pruebas rapidas:
+### 8. Seccion de pruebas rapidas:
 Una vez que el servidor esté corriendo (`npm run dev`) o (`npm start`), puedes probar el endpoint del clima o lugares usando CURL o Postman:
 
 ```bash 
