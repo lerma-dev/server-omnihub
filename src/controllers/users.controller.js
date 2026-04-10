@@ -7,9 +7,15 @@ const secret_key = process.env.JWT_SECRET || 'clave_temporal_de_emergencia';
 export async function Login(req, res){
   const { correo, password } = req.body;
   try {
-    const [result] = await db.query('CALL sp_login_user(?)', [correo]);
+    const [rows] = await db.query(
+      `
+      SELECT id_user, nombre, correo, contrasena
+      FROM users
+      WHERE correo = ?
+      `, [correo]
+    );
 
-    const user = result[0][0];
+    const user = rows[0];
 
     //validar si el usuario existe
     if(!user){
@@ -62,7 +68,10 @@ export async function Register(req, res) {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     await db.query(
-      'CALL sp_register_user(?, ?, ?, ?)', [nombre, apellido, correo, hashedPassword]
+      `
+      INSERT INTO users (nombre, apellido, correo, contrasena) VALUES
+      (?, ?, ?, ?);
+      `, [nombre, apellido, correo, hashedPassword]
     );
     res.status(201).json({
       ok: true,

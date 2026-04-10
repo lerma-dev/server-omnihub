@@ -81,8 +81,14 @@ export const captureOrder = async (req, res) => {
 
             if (id_producto) {
                 try {
-                    await db.query('CALL sp_update_stock(?)', [id_producto]);
-                    console.log(`✅ Stock actualizado para el producto ID: ${id_producto}`);
+                    const [result] = await db.query(
+                        `UPDATE productos SET stock = stock - 1 WHERE id_producto = ? AND stock > 0;`, 
+                        [id_producto]
+                    );
+
+                    if (result.affectedRows === 0) {
+                        console.warn(`⚠️ No se descontó stock. ¿Producto agotado o ID incorrecto?: ${id_producto}`);
+                    }
                 } catch (dbError) {
                     console.error("❌ Error en MySQL al actualizar stock:", dbError.message);
                 }
