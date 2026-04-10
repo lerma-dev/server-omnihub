@@ -16,8 +16,8 @@ const blue = "\x1b[34m";
 class Server {
   constructor(){
     this.app = express();
-    this.host = process.env.HOST;
-    this.port = process.env.PORT;
+    this.host = process.env.HOST || 3000;
+    this.port = process.env.PORT || '0.0.0.0';
     this.middleware();
     this.ConnectDB();
     this.routes();

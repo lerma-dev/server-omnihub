@@ -1,4 +1,5 @@
 -- creacion de la base de datos
+DROP TABLE IF EXISTS ;
 create database omnihub_db;
 use omnihub_db;
 
@@ -15,7 +16,7 @@ create table users(
 CREATE TABLE productos (
   id_producto INT PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR(100) NOT NULL,
-  descripcion VARCHAR(100),
+  descripcion TEXT,
   categoria VARCHAR(100),
   imagen VARCHAR(255),
   precio DECIMAL(10, 2) NOT NULL,
