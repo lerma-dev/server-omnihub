@@ -1,6 +1,6 @@
 // src/payment.controller.js
 import paypal from '@paypal/checkout-server-sdk';
-import { client } from '../api/paypal.js';
+import { client } from '../api/payPal.js';
 import db from '../config/db.js';
 
 export const createOrder = async (req, res) => {
