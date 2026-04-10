@@ -11,7 +11,7 @@ git clone https://github.com/lerma-dev/server-omnihub.git
 #### Iniciar Backend de omniHub:
 - Y en otra terminal
 ```bash
-cd server
+cd server-omnihub
 npm install
 npm run dev
 ``` 
